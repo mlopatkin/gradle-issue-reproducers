@@ -13,4 +13,7 @@ jobs:
         java-version: 11
     - uses: gradle/gradle-build-action@v2
       with:
-        arguments: help --info
+        arguments: --configuration-cache :jar
+    - uses: gradle/gradle-build-action@v2
+      with:
+        arguments: --configuration-cache --scan :jar
