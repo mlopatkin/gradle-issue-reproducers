@@ -1,0 +1,38 @@
+repositories {
+    mavenCentral()
+}
+
+def artifactType = ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE
+
+dependencies {
+    registerTransform(FileSizeTransform) {
+        from.attribute(artifactType, "jar")
+        to.attribute(artifactType, "txt")
+    }
+}
+
+configurations {
+    sizes {
+        canBeResolved = true
+        canBeConsumed = false
+        attributes {
+            attribute(artifactType, "txt")
+        }
+    }
+}
+
+
+dependencies {
+    sizes "org.apache.commons:commons-math3:3.6.1"
+    sizes project(":subproject")
+}
+
+
+tasks.register("resolve") {
+    def inputText = configurations.sizes
+    doLast {
+        inputText.files.each {
+            println it
+        }
+    }
+}
