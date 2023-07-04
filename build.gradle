@@ -1,0 +1,10 @@
+plugins {
+  id 'org.jetbrains.kotlin.jvm' version '1.9.0-354'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev"
+    }
+}
