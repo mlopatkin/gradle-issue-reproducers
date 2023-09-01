@@ -1,1 +1,8 @@
-rootProject.name = "reproducer-project"
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = "publish-issue"
