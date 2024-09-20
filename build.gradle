@@ -1,0 +1,7 @@
+try {
+    apply from: "broken.gradle"
+} catch (Exception e) {
+    // ignore
+}
+
+tasks.register("run") {}
