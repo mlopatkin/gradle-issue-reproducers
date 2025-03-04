@@ -1,3 +1,9 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
+    }
+}
 val numProjects = System.getenv("NUM_PROJECTS")?.toInt() ?: 10
 
 for (i in 1..numProjects) {
@@ -16,6 +22,7 @@ fun createProject(index: Int): String {
 
         repositories {
             mavenCentral()
+            maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
         }
 
         group = "org.example"
